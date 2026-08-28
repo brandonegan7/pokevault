@@ -3,9 +3,53 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <title>PokeVault — Top 100 Card Markets</title>
+  <title>PokeVault Markets</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.pokemontcg.io" />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<p>placeholder</p>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <div class="logo">PV</div>
+        <div>
+          <h1>PokeVault Markets</h1>
+          <div class="sub">Highest-value Pokemon TCG cards · official scans · USD marks</div>
+        </div>
+      </div>
+      <div class="status">
+        <div class="pill"><span class="dot" id="liveDot"></span><span id="liveLabel">Connecting</span></div>
+        <div class="pill">Next sync <span id="countdown">60s</span></div>
+      </div>
+    </header>
+    <section class="stats">
+      <div class="stat"><label>On the board</label><b id="statCount">—</b></div>
+      <div class="stat"><label>Board value</label><b id="statSum">—</b></div>
+      <div class="stat"><label>#1 mark</label><b class="up" id="statTop">—</b></div>
+      <div class="stat"><label>Last sync</label><b id="statSync">—</b></div>
+    </section>
+    <div class="toolbar">
+      <input type="search" id="q" placeholder="Search name, set, or ID…" autocomplete="off" />
+      <select id="filter">
+        <option value="all">All rows</option>
+        <option value="live">Marketplace cards</option>
+        <option value="grail">Auction comps</option>
+      </select>
+      <button class="primary" id="refreshBtn" type="button">Refresh now</button>
+    </div>
+    <div class="board">
+      <div class="head">
+        <span>#</span><span>Scan</span><span>Card</span><span style="text-align:right">USD mark</span>
+        <span class="hide-sm" style="text-align:right">Change</span>
+        <span class="hide-sm" style="text-align:right">Source</span>
+      </div>
+      <div id="rows"><div class="empty">Loading market board…</div></div>
+    </div>
+    <p class="note">Card art is the official English scan from the Pokemon TCG image CDN. Live marks come from the public Pokemon TCG API. Reference values only.</p>
+  </div>
+  <script src="app.js"></script>
 </body>
 </html>
